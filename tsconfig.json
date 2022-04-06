@@ -1,0 +1,29 @@
+{
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules/*",
+    "__sapper__/*",
+    "public/*"
+  ],
+  "compilerOptions": {
+    // "module": "commonjs",
+    // "target": "es2015",
+    // "allowJs": true,
+    // "experimentalDecorators": true,
+    // "emitDecoratorMetadata": true,
+    // "strictNullChecks": true,
+    // "allowSyntheticDefaultImports": true,
+    // "esModuleInterop": true,
+    "types": [
+      "svelte"
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  }
+}

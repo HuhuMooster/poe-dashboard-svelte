@@ -1,0 +1,47 @@
+@use 'sass:color';
+
+@use '@material/theme/color-palette';
+
+$background: #000;
+
+// Svelte Colors! (Dark Theme)
+@use '@material/theme/index' as theme with (
+  $primary: color-palette.$blue-400,
+  $secondary: color-palette.$grey-500,
+  // $secondary: color-palette.$purple-900,
+  // $secondary: color-palette.$grey-100,
+  // $surface: #222,
+  $surface: color.scale(color-palette.$grey-900, $lightness: -40%),
+  $on-surface: #fff,
+  $background: $background,
+  $error: color-palette.$red-900,
+  $on-error: #fff,
+);
+
+// @use "@material/snackbar/mdc-snackbar" with (
+//   $background: color-palette.$red-900,
+//   $on-error: #fff,
+// );
+
+.mdc-snackbar__surface .mdc-snackbar__label .mdc-snackbar__actions {
+  background-color: color-palette.$red-900;
+  color: #fff;
+}
+
+body,
+main,
+html {
+  background-color: $background;
+  color: if(theme.contrast-tone($background) == 'dark', #000, #fff);
+}
+
+a {
+  color: #40b3ff;
+}
+
+a:visited {
+  color: #40b3ff;
+  // color: color.scale(#40b3ff, $lightness: -35%);
+}
+
+
