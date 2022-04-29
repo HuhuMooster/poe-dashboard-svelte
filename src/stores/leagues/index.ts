@@ -2,15 +2,15 @@ import { getHttpClient, proxy } from '@/util/api';
 import { writable } from 'svelte/store';
 import type { TLeague } from './types';
 
-export const activeLeagues = writable<string[]>(undefined);
+export const activeLeagues = writable<Partial<TLeague>[]>(undefined);
 export const allLeagues = writable<TLeague[]>(undefined)
-export const defaultLeague = writable<TLeague>(undefined)
-export const selectedLeague = writable<TLeague>(undefined)
+export const defaultLeague = writable<Partial<TLeague>>(undefined)
+export const selectedLeague = writable<Partial<TLeague>>(undefined)
 
 export const fetchAllLeagues: () => Promise<void> = async () => {
   try {
     const res = await getHttpClient().get(
-      "https://api.jsonbin.io/b/5ffd721b8aa7af359da900b8/latest"
+      "http://timelessjewels.ddns.net:3000/leagues"
     );
     const challengeLeague = res.data.at(0)
     allLeagues.set(res.data)
@@ -32,7 +32,7 @@ export const fetchActiveLeagues: () => Promise<void> = async () => {
       name: string,
       start_date: string,
       end_date: string,
-    }) => l.name);
+    }) => { return { name: l.name } });
     activeLeagues.set(data);
   } catch (err) {
     activeLeagues.set(undefined)

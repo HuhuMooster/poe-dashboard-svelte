@@ -1,7 +1,11 @@
 <script lang="ts">
   import ListContainer from "@/components/ListContainer.svelte";
   import Loading from "@/components/Loading.svelte";
-  import { fetchAllLeagues, selectedLeague } from "@/stores/leagues";
+  import {
+    allLeagues,
+    fetchAllLeagues,
+    selectedLeague,
+  } from "@/stores/leagues";
   import LeagueSelect from "@/views/home/components/LeagueSelect.svelte";
   import { Label } from "@smui/common";
   import Paper, { Content, Title } from "@smui/paper";
@@ -119,7 +123,7 @@
       {#if !$selectedLeague || startCountdown === undefined || !endCountdown === undefined}
         <Loading />
       {:else}
-        <LeagueSelect />
+        <LeagueSelect leagueOptions={$allLeagues} />
         <br />
         {#each leagueInfo as row}
           {#if row}

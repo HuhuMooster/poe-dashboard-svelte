@@ -1,13 +1,27 @@
 <script lang="ts">
-  import { allLeagues, selectedLeague } from "@/stores/leagues";
+  import { defaultLeague, selectedLeague } from "@/stores/leagues";
+  import type { TLeague } from "@/stores/leagues/types";
   import Autocomplete from "@smui-extra/autocomplete";
-  let league = $selectedLeague.name;
-  $: league && selectedLeague.set($allLeagues.find((l) => l.name === league));
+  export let leagueOptions: Partial<TLeague>[] = [];
+  export let style: string = "";
+  export let callback: () => void = () => {};
+  let league = $defaultLeague.name;
+  $: league = leagueOptions.find((l) => l.name === league)?.name;
+  $: if (league) {
+    selectedLeague.set(
+      leagueOptions.find(
+        (l) => l.name === leagueOptions.find((l) => l.name === league).name
+      )
+    );
+    setTimeout(() => {
+      callback();
+    }, 1);
+  }
 </script>
 
-<div class="container">
+<div class="container" {style}>
   <Autocomplete
-    options={$allLeagues.map((l) => l.name)}
+    options={leagueOptions.map((l) => l.name)}
     bind:value={league}
     textfield$variant="outlined"
     label="League"
