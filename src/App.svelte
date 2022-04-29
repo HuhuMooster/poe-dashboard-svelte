@@ -24,7 +24,7 @@
   <!-- SMUI Styles -->
   <link
     rel="stylesheet"
-    href="/build/smui-dark.css"
+    href="./build/smui-dark.css"
     media="screen and (prefers-color-scheme: dark)"
   />
   <link
