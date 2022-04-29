@@ -140,6 +140,8 @@
 
   const generateLinks = () => {
     sortAndValidate();
+    const anyJewelSeeds = Object.values(jewels).some(({ text }) => !!text);
+
     const gggStats = [];
     for (const jewel of Object.values(jewels)) {
       for (const seedString of jewel.text.split(",")) {
@@ -153,11 +155,20 @@
         }
       }
     }
-    url = `https://www.pathofexile.com/trade/search/${
-      $selectedLeague.name
-    }?q={"query":{"status":{"option":"any"},"type":"Timeless Jewel","stats":[{"type":"count","filters":[${gggStats.join(
-      ","
-    )}],"value":{"min":1},"disabled":false}]},"sort":{"price":"asc"}}`;
+    url = !anyJewelSeeds
+      ? ""
+      : `https://www.pathofexile.com/trade/search/${
+          $selectedLeague.name
+        }?q={"query":{"status":{"option":"any"},"type":"Timeless Jewel","stats":[{"type":"count","filters":[${gggStats.join(
+          ","
+        )}],"value":{"min":1},"disabled":false}]},"sort":{"price":"asc"}}`;
+    if (
+      anyJewelSeeds &&
+      JSON.stringify(jewels) !==
+        JSON.stringify(JSON.parse(localStorage.getItem("jewels")))
+    ) {
+      localStorage.setItem("jewels", JSON.stringify(jewels));
+    }
   };
   $: jewels && generateLinks();
 </script>
