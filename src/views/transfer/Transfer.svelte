@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { defaultLeague } from "@/stores/leagues";
+  import { allLeagues, defaultLeague } from "@/stores/leagues";
   import { ninjaData, fetchData } from "@/stores/ninja";
   import { wait } from "@/util/api";
   import type { Item } from "./types";
@@ -87,7 +87,7 @@
     });
     await wait(500);
     await fetchData({
-      leagues: [$defaultLeague.name, "Standard"],
+      leagues: [$defaultLeague, $allLeagues.find((l) => l.name === "Standard")],
       categories: [category],
     });
     processItems();

@@ -1,6 +1,7 @@
 import { activeLeagues } from "@/stores/leagues";
 import { getHttpClient, proxy } from "@/util/api";
 import { get, writable } from 'svelte/store';
+import type { TLeague } from "../leagues/types";
 import { CATEGORIES, ECategory, INITIAL_NINJA_DATA_STATE } from './constants';
 import type { TIcons, TNinjaData } from './types';
 
@@ -12,7 +13,7 @@ const currentNinjaData = get(ninjaData)
 
 const getOverview = (category: ECategory, league: string): string => `https://poe.ninja/api/data/${[ECategory.currency, ECategory.fragments].includes(category) ? 'currency' : 'item'}overview?league=${league}&type=${category}`
 
-export const fetchData = async ({ leagues, categories }: { leagues?: string[], categories?: ECategory[] }): Promise<void> => {
+export const fetchData = async ({ leagues, categories }: { leagues?: Partial<TLeague>[], categories?: ECategory[] }): Promise<void> => {
   const activeLeagues = !leagues ? currentLeagues : [...leagues]
   const actveCategories = !categories ? CATEGORIES : [...categories]
   const icons: TIcons = {}
@@ -26,14 +27,14 @@ export const fetchData = async ({ leagues, categories }: { leagues?: string[], c
   })
 
   for (const l of activeLeagues) {
-    data[l] = {}
-    requestsToProcess[l] = {}
+    data[l.name] = {}
+    requestsToProcess[l.name] = {}
     for (const c of actveCategories) {
-      requestsToProcess[l][c] = getHttpClient().get(proxy(getOverview(c, l)))
+      requestsToProcess[l.name][c] = getHttpClient().get(proxy(getOverview(c, l.name)))
     }
     let entries: any[] = null
     try {
-      entries = await Promise.all(Object.values(requestsToProcess[l]))
+      entries = await Promise.all(Object.values(requestsToProcess[l.name]))
     } catch (err) {
       ninjaData.set({
         // ...JSON.parse(JSON.stringify(INITIAL_NINJA_DATA_STATE)),
@@ -45,7 +46,7 @@ export const fetchData = async ({ leagues, categories }: { leagues?: string[], c
     }
     for (const entry of entries) {
       const category = entry.config.url.split('&type=')[1]
-      data[l][category] = entry.data.lines
+      data[l.name][category] = entry.data.lines
 
       if ('currencyDetails' in entry.data) {
         for (const currency of entry.data.currencyDetails) {
