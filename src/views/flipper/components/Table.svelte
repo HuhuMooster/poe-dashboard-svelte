@@ -63,9 +63,9 @@
           <Label>Name</Label>
           <IconButton class="material-icons">arrow_upward</IconButton>
         </Cell>
-        <Cell columnId="leagueCE">
+        <Cell columnId="cost">
           <Label>
-            League
+            Cost
             <img
               class="chaos"
               alt="chaos"
@@ -74,9 +74,9 @@
           </Label>
           <IconButton class="material-icons">arrow_upward</IconButton>
         </Cell>
-        <Cell columnId="standardCE">
+        <Cell columnId="revenue">
           <Label>
-            Standard
+            Revenue
             <img
               class="chaos"
               alt="chaos"
@@ -113,15 +113,15 @@
           <Cell>
             <a
               href={`https://www.poewiki.net/wiki/${encodeURIComponent(
-                item.originalName
+                item.name
               )}`}
               target="blank_"
             >
               {item.name}
             </a>
           </Cell>
-          <Cell>{item.leagueCE}</Cell>
-          <Cell>{item.standardCE}</Cell>
+          <Cell>{item.cost}</Cell>
+          <Cell>{item.revenue}</Cell>
           <Cell>{item.profit}</Cell>
           <Cell>{item.profitMargin}</Cell>
         </Row>
