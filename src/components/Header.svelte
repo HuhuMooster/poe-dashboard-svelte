@@ -5,12 +5,13 @@
   import Labs from "@/views/lab/Labs.svelte";
   import Transfer from "@/views/transfer/Transfer.svelte";
   import Timeless from "@/views/timeless/Timeless.svelte";
+  import Flipper from "@/views/flipper/Flipper.svelte";
 
   // const tabs = ["Home", "League transfer", "League flipper", "Lab layouts"];
   const tabs = [
     { name: "Home", title: "Path of Exile dashboard", component: Home },
     { name: "Transfer", title: "League transfer", component: Transfer },
-    { name: "Flipper", title: "League flipper", component: Labs },
+    { name: "Flipper", title: "League flipper", component: Flipper },
     { name: "Labyrinth", title: "Lab layouts", component: Labs },
     { name: "Timeless", title: "Timeless helper", component: Timeless },
   ];

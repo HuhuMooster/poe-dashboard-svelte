@@ -4,9 +4,11 @@
   import { wait } from "@/util/api";
   import type { Item } from "./types";
   import { onDestroy } from "svelte";
-  import Header from "./components/Header.svelte";
   import Table from "./components/Table.svelte";
+  import CategoriesHeader from "@/components/CategoriesHeader.svelte";
   import { getProfit, getProfitMargin } from "@/util/profitCalc";
+  import { CATEGORIES, ECategory } from "@/stores/ninja/constants";
+  import { ICONS } from "./constants";
 
   onDestroy(() => {
     ninjaData.set({
@@ -18,24 +20,25 @@
   const processItems = (): void => {
     const computedItems: Record<string, Item> = {};
     for (const item of $ninjaData.data[$defaultLeague.name][category]) {
-      const itemName =
+      const name =
         item.currencyTypeName ||
         `${item.name}${item.variant ? " " + item.variant : ""}${
           item.links ? " (" + item.links + "L)" : ""
         }${item.mapTier ? " (T" + item.mapTier + ")" : ""}` ||
         item.baseType;
+      const icon =
+        item.icon ||
+        $ninjaData.icons[
+          name
+            .replace(
+              / \d+ passives|Replica | Penetration| Added Spells| Added Attacks| Conversion/gm,
+              ""
+            )
+            .replace(item.variant ? item.variant : "", "")
+        ];
       computedItems[item.detailsId] = {
-        icon:
-          item.icon ||
-          $ninjaData.icons[
-            itemName
-              .replace(
-                / \d+ passives|Replica | Penetration| Added Spells| Added Attacks| Conversion/gm,
-                ""
-              )
-              .replace(item.variant ? item.variant : "", "")
-          ],
-        name: itemName,
+        icon,
+        name,
         originalName: item.currencyTypeName || item.name || item.baseType,
         leagueCE: item.chaosEquivalent || item.chaosValue,
         standardCE: 0,
@@ -93,7 +96,7 @@
     processItems();
   };
 
-  let category = null;
+  let category: ECategory = null;
   let items: Item[] = [];
   $: document.title = `${
     category ? category + " transfer" : "League transfer"
@@ -101,6 +104,12 @@
 </script>
 
 <div class="container">
-  <Header on:changeCategory={fetchCategoryData} />
-  <Table {items} />
+  <CategoriesHeader
+    icons={ICONS}
+    categories={CATEGORIES}
+    on:changeCategory={fetchCategoryData}
+  />
+  {#if category}
+    <Table {items} />
+  {/if}
 </div>
