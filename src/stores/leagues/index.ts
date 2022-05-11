@@ -12,10 +12,11 @@ export const fetchAllLeagues: () => Promise<void> = async () => {
     const res = await getHttpClient().get(
       "http://timelessjewels.ddns.net:3000/leagues"
     );
-    const challengeLeague = res.data.at(0)
+    const challengeLeague = res.data.find((league: TLeague) => league.challenge && (league.active || league.upcoming))
+    const standardLeague = res.data.at(-1)
     allLeagues.set(res.data)
-    defaultLeague.set(challengeLeague)
-    selectedLeague.set(challengeLeague)
+    defaultLeague.set(challengeLeague || standardLeague)
+    selectedLeague.set(challengeLeague || standardLeague)
   } catch (err) {
     allLeagues.set(undefined)
     defaultLeague.set(undefined)

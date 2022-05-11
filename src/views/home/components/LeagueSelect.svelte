@@ -1,11 +1,21 @@
 <script lang="ts">
-  import { defaultLeague, selectedLeague } from "@/stores/leagues";
+  import { defaultLeague, selectedLeague, allLeagues } from "@/stores/leagues";
   import type { TLeague } from "@/stores/leagues/types";
   import Autocomplete from "@smui-extra/autocomplete";
   export let leagueOptions: Partial<TLeague>[] = [];
   export let style: string = "";
   export let callback: () => void = () => {};
-  let league = $defaultLeague.name;
+
+  const getDefaultLeagueName = () => {
+    const isDefaultLeagueInOptions = leagueOptions.find(
+      (l) => l.name === $defaultLeague.name
+    )?.name;
+    return isDefaultLeagueInOptions
+      ? $defaultLeague.name
+      : $allLeagues.at(-1).name;
+  };
+
+  let league = getDefaultLeagueName();
   $: league = leagueOptions.find((l) => l.name === league)?.name;
   $: if (league) {
     selectedLeague.set(
