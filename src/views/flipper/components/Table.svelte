@@ -120,9 +120,9 @@
               {item.name}
             </a>
           </Cell>
-          <Cell>{item.cost}</Cell>
-          <Cell>{item.revenue}</Cell>
-          <Cell>{item.profit}</Cell>
+          <Cell>{item.cost.toFixed(2)}</Cell>
+          <Cell>{item.revenue.toFixed(2)}</Cell>
+          <Cell>{item.profit.toFixed(2)}</Cell>
           <Cell>{item.profitMargin}</Cell>
         </Row>
       {/each}

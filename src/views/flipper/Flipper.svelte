@@ -81,10 +81,7 @@
           );
         }
       }
-      computedItems[item.detailsId].cost = cost
-        .reduce((a, b) => a + b, 0)
-        .toFixed(2);
-
+      computedItems[item.detailsId].cost = cost.reduce((a, b) => a + b, 0);
       if ("revenueItems" in item) {
         // @ts-ignore
         explicit += `${item.revenueItems
@@ -105,9 +102,10 @@
             );
           // }
         }
-        computedItems[item.detailsId].revenue = revenue
-          .reduce((a, b) => a + b, 0)
-          .toFixed(2);
+        computedItems[item.detailsId].revenue = revenue.reduce(
+          (a, b) => a + b,
+          0
+        );
       } else {
         explicit += `${item.count} * ${item.name}`;
         const filteredRevenueItem = $ninjaData.data[$selectedLeague.name][

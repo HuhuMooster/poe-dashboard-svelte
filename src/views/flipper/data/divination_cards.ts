@@ -23,6 +23,29 @@ export const DIVINATION_CARDS = [
     ]
   },
   {
+    name: "A Fate Worse Than Death",
+    detailsId: 'a-fate-worse-than-death',
+    category: 'DivinationCard',
+    icon: 'https://web.poecdn.com/image/Art/2DItems/Divination/InventoryIcon.png?v=a8ae131b97fad3c64de0e6d9f250d743&w=1&h=1&scale=1',
+    count: 4,
+    costItems: [
+      {
+        name: "A Fate Worse Than Death",
+        detailsId: 'a-fate-worse-than-death',
+        category: 'DivinationCard',
+        count: 4
+      }
+    ],
+    revenueItems: [
+      {
+        name: 'Cortex (Corrupted)',
+        detailsId: 'cortex-t10',
+        category: 'UniqueMap',
+        count: 1
+      }
+    ]
+  },
+  {
     name: "A Mother's Parting Gift",
     detailsId: 'a-mothers-parting-gift',
     category: 'DivinationCard',
@@ -115,6 +138,29 @@ export const DIVINATION_CARDS = [
     ]
   },
   {
+    name: 'Altered Perception',
+    detailsId: 'altered-perception',
+    category: 'DivinationCard',
+    icon: 'https://web.poecdn.com/image/Art/2DItems/Divination/InventoryIcon.png?v=a8ae131b97fad3c64de0e6d9f250d743&w=1&h=1&scale=1',
+    count: 3,
+    costItems: [
+      {
+        name: 'Altered Perception',
+        detailsId: 'altered-perception',
+        category: 'DivinationCard',
+        count: 3
+      }
+    ],
+    revenueItems: [
+      {
+        name: 'Simulacrum',
+        detailsId: 'simulacrum',
+        category: 'Fragment',
+        count: 1
+      }
+    ]
+  },
+  {
     name: "Brother's Stash",
     detailsId: 'brothers-stash',
     category: 'DivinationCard',
@@ -202,6 +248,52 @@ export const DIVINATION_CARDS = [
         name: 'Maw of Mischief',
         detailsId: 'maw-of-mischief-bone-helmet',
         category: 'UniqueArmour',
+        count: 1
+      }
+    ]
+  },
+  {
+    name: 'Darker Half',
+    detailsId: 'darker-half',
+    category: 'DivinationCard',
+    icon: 'https://web.poecdn.com/image/Art/2DItems/Divination/InventoryIcon.png?v=a8ae131b97fad3c64de0e6d9f250d743&w=1&h=1&scale=1',
+    count: 3,
+    costItems: [
+      {
+        name: 'Darker Half',
+        detailsId: 'darker-half',
+        category: 'DivinationCard',
+        count: 3
+      }
+    ],
+    revenueItems: [
+      {
+        name: 'Eldritch Chaos Orb',
+        detailsId: 'eldritch-chaos-orb',
+        category: 'Currency',
+        count: 5
+      }
+    ]
+  },
+  {
+    name: 'Eternal Bonds',
+    detailsId: 'eternal-bonds',
+    category: 'DivinationCard',
+    icon: 'https://web.poecdn.com/image/Art/2DItems/Divination/InventoryIcon.png?v=a8ae131b97fad3c64de0e6d9f250d743&w=1&h=1&scale=1',
+    count: 4,
+    costItems: [
+      {
+        name: 'Eternal Bonds',
+        detailsId: 'eternal-bonds',
+        category: 'DivinationCard',
+        count: 4
+      }
+    ],
+    revenueItems: [
+      {
+        name: 'Replica Cortex',
+        detailsId: 'replica-cortex-t10',
+        category: 'UniqueMap',
         count: 1
       }
     ]
@@ -317,6 +409,29 @@ export const DIVINATION_CARDS = [
         name: 'The Taming',
         detailsId: 'the-taming-prismatic-ring',
         category: 'UniqueAccessory',
+        count: 1
+      }
+    ]
+  },
+  {
+    name: "Judging Voices",
+    detailsId: 'judging-voices',
+    category: 'DivinationCard',
+    icon: 'https://web.poecdn.com/image/Art/2DItems/Divination/InventoryIcon.png?v=a8ae131b97fad3c64de0e6d9f250d743&w=1&h=1&scale=1',
+    count: 9,
+    costItems: [
+      {
+        name: "Judging Voices",
+        detailsId: 'judging-voices',
+        category: 'DivinationCard',
+        count: 9
+      }
+    ],
+    revenueItems: [
+      {
+        name: 'Forbidden Shako',
+        detailsId: 'forbidden-shako-great-crown',
+        category: 'UniqueArmour',
         count: 1
       }
     ]
@@ -598,6 +713,29 @@ export const DIVINATION_CARDS = [
     ]
   },
   {
+    name: 'Silence and Frost',
+    detailsId: 'silence-and-frost',
+    category: 'DivinationCard',
+    icon: 'https://web.poecdn.com/image/Art/2DItems/Divination/InventoryIcon.png?v=a8ae131b97fad3c64de0e6d9f250d743&w=1&h=1&scale=1',
+    count: 7,
+    costItems: [
+      {
+        name: 'Silence and Frost',
+        detailsId: 'silence-and-frost',
+        category: 'DivinationCard',
+        count: 7
+      }
+    ],
+    revenueItems: [
+      {
+        name: 'The Pandemonius',
+        detailsId: 'the-pandemonius-jade-amulet',
+        category: 'UniqueAccessory',
+        count: 1
+      }
+    ]
+  },
+  {
     name: "Society's Remorse",
     detailsId: 'societys-remorse',
     category: 'DivinationCard',
@@ -685,6 +823,29 @@ export const DIVINATION_CARDS = [
         name: 'Inspired Learning',
         detailsId: 'inspired-learning-crimson-jewel',
         category: 'UniqueJewel',
+        count: 1
+      }
+    ]
+  },
+  {
+    name: 'The Apothecary',
+    detailsId: 'the-apothecary',
+    category: 'DivinationCard',
+    icon: 'https://web.poecdn.com/image/Art/2DItems/Divination/InventoryIcon.png?v=a8ae131b97fad3c64de0e6d9f250d743&w=1&h=1&scale=1',
+    count: 5,
+    costItems: [
+      {
+        name: 'The Apothecary',
+        detailsId: 'the-apothecary',
+        category: 'DivinationCard',
+        count: 5
+      }
+    ],
+    revenueItems: [
+      {
+        name: 'Mageblood',
+        detailsId: 'mageblood-heavy-belt',
+        category: 'UniqueAccessory',
         count: 1
       }
     ]
@@ -961,6 +1122,29 @@ export const DIVINATION_CARDS = [
         name: 'Headhunter (Two-Implicit Corrupted)',
         detailsId: 'headhunter-leather-belt',
         category: 'UniqueAccessory',
+        count: 1
+      }
+    ]
+  },
+  {
+    name: 'The Destination',
+    detailsId: 'the-destination',
+    category: 'DivinationCard',
+    icon: 'https://web.poecdn.com/image/Art/2DItems/Divination/InventoryIcon.png?v=a8ae131b97fad3c64de0e6d9f250d743&w=1&h=1&scale=1',
+    count: 9,
+    costItems: [
+      {
+        name: 'The Destination',
+        detailsId: 'the-destination',
+        category: 'DivinationCard',
+        count: 9
+      }
+    ],
+    revenueItems: [
+      {
+        name: 'Watcher\'s Eye (Two-Implicit Corrupted)',
+        detailsId: 'watchers-eye-prismatic-jewel',
+        category: 'UniqueJewel',
         count: 1
       }
     ]
@@ -1490,6 +1674,29 @@ export const DIVINATION_CARDS = [
     ]
   },
   {
+    name: 'The One That Got Away',
+    detailsId: 'the-one-that-got-away',
+    category: 'DivinationCard',
+    icon: 'https://web.poecdn.com/image/Art/2DItems/Divination/InventoryIcon.png?v=a8ae131b97fad3c64de0e6d9f250d743&w=1&h=1&scale=1',
+    count: 7,
+    costItems: [
+      {
+        name: 'The One That Got Away',
+        detailsId: 'the-one-that-got-away',
+        category: 'DivinationCard',
+        count: 7
+      }
+    ],
+    revenueItems: [
+      {
+        name: "Replica Bated Breath",
+        detailsId: 'replica-bated-breath-chain-belt-replica',
+        category: 'UniqueAccessory',
+        count: 1
+      }
+    ]
+  },
+  {
     name: 'The Pact',
     detailsId: 'the-pact',
     category: 'DivinationCard',
@@ -1555,6 +1762,52 @@ export const DIVINATION_CARDS = [
         detailsId: 'astramentis-onyx-amulet',
         category: 'UniqueAccessory',
         count: 1
+      }
+    ]
+  },
+  {
+    name: 'The Prince of Darkness',
+    detailsId: 'the-prince-of-darkness',
+    category: 'DivinationCard',
+    icon: 'https://web.poecdn.com/image/Art/2DItems/Divination/InventoryIcon.png?v=a8ae131b97fad3c64de0e6d9f250d743&w=1&h=1&scale=1',
+    count: 6,
+    costItems: [
+      {
+        name: 'The Prince of Darkness',
+        detailsId: 'the-prince-of-darkness',
+        category: 'DivinationCard',
+        count: 6
+      }
+    ],
+    revenueItems: [
+      {
+        name: 'Elegant Hubris',
+        detailsId: 'elegant-hubris-timeless-jewel',
+        category: 'UniqueJewel',
+        count: 1
+      }
+    ]
+  },
+  {
+    name: 'The Scout',
+    detailsId: 'the-scout',
+    category: 'DivinationCard',
+    icon: 'https://web.poecdn.com/image/Art/2DItems/Divination/InventoryIcon.png?v=a8ae131b97fad3c64de0e6d9f250d743&w=1&h=1&scale=1',
+    count: 8,
+    costItems: [
+      {
+        name: 'The Scout',
+        detailsId: 'the-scout',
+        category: 'DivinationCard',
+        count: 8
+      }
+    ],
+    revenueItems: [
+      {
+        name: 'Exalted Orb',
+        detailsId: 'exalted-orb',
+        category: 'Currency',
+        count: 7
       }
     ]
   },

@@ -10,9 +10,7 @@
     const isDefaultLeagueInOptions = leagueOptions.find(
       (l) => l.name === $defaultLeague.name
     )?.name;
-    return isDefaultLeagueInOptions
-      ? $defaultLeague.name
-      : $allLeagues.at(-1).name;
+    return isDefaultLeagueInOptions ?? $allLeagues.at(-1).name;
   };
 
   let league = getDefaultLeagueName();
